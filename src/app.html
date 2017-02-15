@@ -1,0 +1,40 @@
+<template>
+  <h1>${heading}</h1>
+
+
+  <form submit.trigger="addTodo()">
+    <input type="text" value.bind="newTodo">
+    <button type="submit">Add Todo</button>
+  </form>
+
+  <hr>
+
+<table>
+  <tr>
+    <th>Completed &emsp;</th>
+    <th>Edit &emsp;</th>
+    <th>Task Description &emsp;</th>
+    <th>Operations</th>
+  </tr>
+
+  <tr repeat.for="todo of todos">
+    <td>
+      <input type="checkbox" checked.bind="todo.done">
+    </td>
+    <td>      
+       <input type="checkbox" checked.bind="todo.edit">
+    </td>      
+    <td>
+       <input disabled.bind="!todo.edit" type="text" name="task"  value.bind="todo.description" 
+       css="text-align: center;  text-decoration: ${todo.done ? 'line-through' : 'none'}">
+    </td>
+    <td>          
+       <button click.trigger="removeTodo(todo)">X</button>
+       <button show.bind="todo.edit" click.trigger="todo.edit=false">Done</button>
+    </td>
+    
+  </tr>
+  </table>
+
+  <hr>
+</template>
