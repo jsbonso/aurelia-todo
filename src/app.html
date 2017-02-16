@@ -2,10 +2,12 @@
 
   <require from="bootstrap/css/bootstrap.css"></require>
 
+  <div class="container">
+
+    
   <div class="alert alert-success" role="alert">This simple ToDo app is created with Aurelia Framework, Aurelia CLI and Bootstrap 3. 
     Learn more about Aurelia at: <a href="http://www.tutorialsdojo.com"><b>Tutorials Dojo</b></a>!  </div>
 
-  <div class="container">
     <div class="panel panel-primary">
 
       <!-- Default panel contents -->
@@ -27,7 +29,7 @@
       <table class="table table-striped table-hover" >
         <tr>
           <th class="text-center">Completed</th>
-          <th class="text-center">Task Description</th>
+          <th class="text-center col-md-6">Task Description</th>
           <th class="text-center">Operations</th>
         </tr>
 
@@ -36,8 +38,8 @@
             <input type="checkbox" checked.bind="todo.done" click.delegate="countNumberOfCompletedTasks()">
           </td>
           <td class="text-center">
-            <span show.bind="!todo.edit" css="text-align: center;  text-decoration: ${todo.done ? 'line-through' : 'none'}">${todo.description}</span>
-            <input show.bind="todo.edit"; class="form-control" disabled.bind="!todo.edit" type="text" name="task" value.bind="todo.description">
+            <span show.bind="!todo.edit" css="text-align: center;  text-decoration: ${todo.done ? 'line-through' : 'none'}">${todo.description}</span>            
+            <input show.bind="todo.edit" class="form-control" disabled.bind="!todo.edit" type="text" name="task" value.bind="todo.description">            
           </td>
           <td class="text-center">            
             <button class="btn btn-primary" click.trigger="todo.edit=!todo.edit">${ !todo.edit ? 'Update' : 'Done' }</button>
