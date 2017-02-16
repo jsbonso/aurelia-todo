@@ -5,6 +5,7 @@ export class App {
   heading = 'My Tasks';
   todos: Todo[] = [];
   newTodo = '';
+  completedTodos = 0;
 
   addTodo() {
     if (this.newTodo) {
@@ -19,4 +20,13 @@ export class App {
       this.todos.splice(index, 1);
     }
   }
+
+    countNumberOfCompletedTasks() {
+      var count = 0;
+      for (var todo of this.todos) {
+        count = todo.done ? count++ : count;
+      }
+       this.completedTodos = count;
+       return true;
+    }
 }

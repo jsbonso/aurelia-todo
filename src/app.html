@@ -20,7 +20,7 @@
             </div>
             
               <button type="submit" class="btn btn-success">Add Todo</button>
-            
+              <div show.bind="false">${ completedTodos }</div>
         </form>
       </div>
 
@@ -33,13 +33,14 @@
 
         <tr repeat.for="todo of todos">
           <td class="text-center">
-            <input type="checkbox" checked.bind="todo.done">
+            <input type="checkbox" checked.bind="todo.done" click.delegate="countNumberOfCompletedTasks()">
           </td>
           <td class="text-center">
-            <input class="form-control" disabled.bind="!todo.edit" type="text" name="task" value.bind="todo.description" css="text-align: center;  text-decoration: ${todo.done ? 'line-through' : 'none'}">
+            <span show.bind="!todo.edit" css="text-align: center;  text-decoration: ${todo.done ? 'line-through' : 'none'}">${todo.description}</span>
+            <input show.bind="todo.edit"; class="form-control" disabled.bind="!todo.edit" type="text" name="task" value.bind="todo.description">
           </td>
           <td class="text-center">            
-            <button class="btn btn-primary" click.trigger="todo.edit=!todo.edit">${ (todo.edit === false || null ) ? 'Update' : 'Done' }</button>
+            <button class="btn btn-primary" click.trigger="todo.edit=!todo.edit">${ !todo.edit ? 'Update' : 'Done' }</button>
             <button class="btn btn-danger" click.trigger="removeTodo(todo)">Delete</button>            
           </td>
 
