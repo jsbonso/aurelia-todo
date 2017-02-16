@@ -1,5 +1,10 @@
 # aurelia-todo
-A simple CRUD Aurelia app by your friendly neighborhood dev, Jon Bonso
+A simple CRUD Aurelia app by your friendly neighborhood dev, Jon Bonso. 
+This is a yet another another ToDo app that enables you to Create, Read, Update and
+Delete a task. 
+
+Noticeably, the Aurelia code is cleaner and has significantly less framework-specific annotations/decorators, 
+compared with Angular 2. 
 
 # DEMO
 You can see this project in action here: 
